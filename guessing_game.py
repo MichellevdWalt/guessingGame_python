@@ -45,10 +45,10 @@ def start_game():
                     break
                 else:
                     if guess > answer and guess <= highest:
-                        print("\nIt's Lower")
+                        print("\nNope, It's Lower")
                         continue
                     elif guess < answer and guess >= lowest:
-                        print("\nIt's higher")
+                        print("\nNope, It's higher")
                         continue
                     else:
                         print("\nYour guess is out of range, it still counts though :)")
