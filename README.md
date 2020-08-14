@@ -21,5 +21,5 @@
   - If you made the new high score of this round you will be notified
     - Choose whether you want to play another round.
       - y, yes, Y, YES are all accepted for yes, all other characters are accepted for no.
-      - If you do, a new game will start and the current high score displayed
-      - If you don't the game will end. 
+    - If you do, a new game will start and the current high score displayed
+    - If you don't the game will end. 
