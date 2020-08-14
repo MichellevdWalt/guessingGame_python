@@ -16,6 +16,8 @@ def start_game():
     print("\nWelcome to the number guessing game!")
     if scores:
       print("\nThe current high score is {}".format(min(scores)))
+    else:
+      print("\nNo high score yet, go for it!!!!")
     while True:
       ownRange = input("\nWould you like to choose your own range? Y/N  ")
       if ownRange.lower() == "y" or ownRange.lower() == "yes":
@@ -80,7 +82,7 @@ def play_again():
       start_game()
       break
     elif again.lower() == "n" or again.lower() == "no":
-      print("Thanks for playing")
+      print("Thanks for playing! Goodbye")
       break
     else:
       print("\nPlease answer with either yes or no")
