@@ -10,84 +10,51 @@ scores = []
 def start_game():
     attempts = 0
     
-    print("Welcome to the number guessing game!")
+    print("\nWelcome to the number guessing game!")
     if scores:
-      print("The current highscore is {}".format(min(scores)))
-    ownRange = input("Would you like to choose your own range? Y/N  ")
+      print("\nThe current highscore is {}".format(min(scores)))
+    ownRange = input("\nWould you like to choose your own range? Y/N  ")
     if ownRange.lower() == "y" or ownRange.lower() == "yes":
       lowest = int(input("Please choose the lowest number  "))
-      highest = int(input("Please choose the higest number   "))
+      highest = int(input("Please choose the higest number  "))
     else:
       lowest = 1
       highest = 10
       
     answer = random.randint(lowest, highest)
     print("Answer", answer)
-    
-    while True:
-      try:
-        guess = int(input("Please choose a number between {} and {}   ".format(lowest, highest)))
-        if guess:
-          print("true")
-          guessInt = int(guess)
-          attempts += 1
-          break
-        else:
-          print("false")
-          raise ValueError("Woops, that's not a valid number")          
-        
-      except ValueError:
-        print("Woops, that's not a number")
-      
-      except ValueError as err:
-        print("{}".format(err))
-        continue
           
-        
-#    while guess != answer:
-#      try:
     while True:
-      if guess == answer:
-        break
-      else:
         try:
-          if guess:
-            
-            if guess > answer and guess <= highest:
-              print("It's Lower")
-              guess = int(input("Please choose a number between {} and {}   ".format(lowest, highest)))
-              attempts += 1
-              continue
-            elif guess < answer and guess >= lowest:
-              print("It's higher")
-              guess = int(input("Please choose a number between {} and {}   ".format(lowest, highest)))
-              attempts += 1
-              continue
+            guess = input("\nPlease choose a number between {} and {}   ".format(lowest, highest))
+            if guess.isnumeric():
+                guess = int(guess)
+                if guess == answer:
+                    break
+                else:
+                    if guess > answer and guess <= highest:
+                        print("\nIt's Lower")
+                        attempts += 1
+                        continue
+                    elif guess < answer and guess >= lowest:
+                        print("\nIt's higher")
+                        attempts += 1
+                        continue
+                    else:
+                        print("\nYour guess is out of range, it still counts though :)")
+                        attempts += 1
+                        continue
             else:
-              print("Your guess is out of range, it still counts though :)")
-              guess = int(input("Please choose a number between {} and {}   ".format(lowest, highest)))
-              attempts += 1
-              continue
-            
-          else:
-            raise ValueError("Woops, that's not a valid number")
-            continue
+                raise ValueError("\nWoops, that's not a number") 
         
         except ValueError:
-          print("Woops, that's not a valid number, please try again")
-          guess = int(input("Please choose a number between {} and {}   ".format(lowest, highest)))
-          continue
-          
-          
+            print("\nWoops, that's not a number")
+            continue
+
         except ValueError as err:
-          print("{}".format(err))
-          guess = int(input("Please choose a number between {} and {}   ".format(lowest, highest)))
-          continue
-        
-#      except ValueError:
-#        print("Woops, that's not a valid value")
-#        guess = int(input("Please choose a number between {} and {}   ".format(lowest, highest)))
-        
+            print("{}".format(err))
+            continue      
+
     print(
       """\nCongratulations, you WIN!!!
 It only took you {} attempts""".format(attempts))
