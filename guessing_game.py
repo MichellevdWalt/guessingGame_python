@@ -6,13 +6,16 @@ Project 1 - Number Guessing Game
 
 import random
 
+#Empty scores array to store scores for high score purposes
 scores = []
+
+#Function to control the game flow
 def start_game():
     attempts = 0
     
     print("\nWelcome to the number guessing game!")
     if scores:
-      print("\nThe current highscore is {}".format(min(scores)))
+      print("\nThe current high score is {}".format(min(scores)))
     ownRange = input("\nWould you like to choose your own range? Y/N  ")
     if ownRange.lower() == "y" or ownRange.lower() == "yes":
       lowest = int(input("Please choose the lowest number  "))
@@ -22,11 +25,11 @@ def start_game():
       highest = 10
       
     answer = random.randint(lowest, highest)
-    print("Answer", answer)
           
     while True:
         try:
             guess = input("\nPlease choose a number between {} and {}   ".format(lowest, highest))
+            attempts += 1
             if guess.isnumeric():
                 guess = int(guess)
                 if guess == answer:
@@ -34,15 +37,14 @@ def start_game():
                 else:
                     if guess > answer and guess <= highest:
                         print("\nIt's Lower")
-                        attempts += 1
                         continue
                     elif guess < answer and guess >= lowest:
                         print("\nIt's higher")
-                        attempts += 1
                         continue
                     else:
                         print("\nYour guess is out of range, it still counts though :)")
-                        attempts += 1
+                        #If you don't want this to count uncomment the next line and edit above
+                        # attempts -= 1
                         continue
             else:
                 raise ValueError("\nWoops, that's not a number") 
@@ -60,10 +62,10 @@ def start_game():
 It only took you {} attempts""".format(attempts))
     scores.append(attempts)
     if attempts == min(scores):
-      print("\nWooop!! you just hit a new HIGHSCORE!!!")
+      print("\nWooop!! you just hit a new HIGH SCORE!!!")
     play_again()
       
-      
+# Function to prompt and control what happens when a player wants to play again or not      
 def play_again():
   again = input("\nWould you like to play again? Y/N   ")
   if again.lower() == "y" or again.lower() == "yes":
