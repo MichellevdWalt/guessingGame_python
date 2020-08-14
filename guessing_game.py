@@ -16,13 +16,20 @@ def start_game():
     print("\nWelcome to the number guessing game!")
     if scores:
       print("\nThe current high score is {}".format(min(scores)))
-    ownRange = input("\nWould you like to choose your own range? Y/N  ")
-    if ownRange.lower() == "y" or ownRange.lower() == "yes":
-      lowest = int(input("Please choose the lowest number  "))
-      highest = int(input("Please choose the higest number  "))
-    else:
-      lowest = 1
-      highest = 10
+    while True:
+      ownRange = input("\nWould you like to choose your own range? Y/N  ")
+      if ownRange.lower() == "y" or ownRange.lower() == "yes":
+        lowest = int(input("Please choose the lowest number  "))
+        highest = int(input("Please choose the higest number  "))
+        break
+      elif ownRange.lower() == "no" or ownRange.lower() == "n":
+        lowest = 1
+        highest = 10
+        break
+      else:  
+        print("\nPlease answer with either yes or no")
+        continue
+      
       
     answer = random.randint(lowest, highest)
           
@@ -67,9 +74,17 @@ It only took you {} attempts""".format(attempts))
       
 # Function to prompt and control what happens when a player wants to play again or not      
 def play_again():
-  again = input("\nWould you like to play again? Y/N   ")
-  if again.lower() == "y" or again.lower() == "yes":
-    start_game()
+  while True:
+    again = input("\nWould you like to play again? Y/N   ")
+    if again.lower() == "y" or again.lower() == "yes":
+      start_game()
+      break
+    elif again.lower() == "n" or again.lower() == "no":
+      print("Thanks for playing")
+      break
+    else:
+      print("\nPlease answer with either yes or no")
+      continue
 
 start_game()
 

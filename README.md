@@ -9,7 +9,7 @@
 
 **Rules of the game**
 - Choose wether you want to choose your own range. (The random number will be chosen within this range)
-  - y, yes, Y, YES are all accepted for yes, all other characters are accepted for no.
+  - y, yes, Y, YES are all accepted for yes, n, no, N, No are all accepted for no.
 - If you don't choose your own range it will default to a number between 1 and 10.
 - Type in your guess
   - This should be a numerical character. If it's not, a custom error will display
@@ -20,6 +20,6 @@
   - You are congratulated
   - If you made the new high score of this round you will be notified
   - Choose whether you want to play another round.
-    - y, yes, Y, YES are all accepted for yes, all other characters are accepted for no.
+    - y, yes, Y, YES are all accepted for yes, n, no, N, No are all accepted for no.
   - If you do, a new game will start and the current high score displayed
   - If you don't the game will end. 
