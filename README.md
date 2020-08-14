@@ -1,8 +1,8 @@
 # Treehouse Python Techdegree - project 1
 
-## Command-line programme guessing game. 
+## Command-line guessing game. 
 
-**How to use this programme:**
+**How to use this game:**
 - Run with:
   - $python3 guessing_game.py
 - Follow prompts in the terminal to play the game. 
