@@ -1,6 +1,6 @@
-#Treehouse Python Techdegree - project 1
+# Treehouse Python Techdegree - project 1
 
-##Command-line programme guessing game. 
+## Command-line programme guessing game. 
 
 **How to use this programme:**
 -Run with:
